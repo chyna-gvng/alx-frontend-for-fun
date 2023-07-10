@@ -13,7 +13,7 @@ from time import sleep
 
 
 def h(line):
-    # Creates a heading html element
+    # Create heading html element
     line = line.replace("\n", "")
 
     line = line.strip()
@@ -24,7 +24,7 @@ def h(line):
     if (level > 6):
         return(line)
 
-    # Removes closing symbols at end of line.
+    # Remove closing symbols at end of line.
     if len(parse_space[-1]) == parse_space[-1].count("#"):
         parse_space = parse_space[0:-1]
 
@@ -38,15 +38,12 @@ def h(line):
 
 
 def li(line, flags):
-    """
-    Creates a list item html element.
-    <li>...</li>
-    """
+    # Create a list item html element.
     line = line.replace("\n", "")
     line = line.strip()
     parse_space = line.split(" ")
 
-    # Concatenates the content string.
+    # Concatenate the content string.
     content = ""
     for word in parse_space[1:]:
         content += word + " "
@@ -60,9 +57,7 @@ def li(line, flags):
 
 
 def clean_line(line):
-    """
-    Styling tags with the use of Regular expressions.
-    """
+    # Styling tags with the use of Regular expressions.
     # Replace ** for <b> tags
     line = re.sub(r"\*\*(\S+)", r"<b>\1", line)
     line = re.sub(r"(\S+)\*\*", r"\1</b>", line)
@@ -85,9 +80,7 @@ def clean_line(line):
 
 
 def mark2html(*argv):
-    """
-    Main method to parse and process markdown to html.
-    """
+    # Function that converts markdown to html.
     inputFile = argv[1]
     ouputFile = argv[2]
     flags = argv[3:]
@@ -177,9 +170,7 @@ def mark2html(*argv):
 
 
 def perror(*args, **kwargs):
-    """
-    Printing to STDERR file descriptor.
-    """
+    # Printing to STDERR file descriptor.
     print(*args, file=stderr, **kwargs)
 
 
