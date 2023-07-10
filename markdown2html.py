@@ -33,8 +33,9 @@ html_content = re.sub(r'^\* (.+)$', r'<li>\g<1></li>', html_content, flags=re.MU
 html_content = re.sub(r'(<li>.+</li>)', r'<ol>\n\g<1>\n</ol>', html_content)
 
 # Parse paragraphs and generate HTML
-html_content = re.sub(r'^([^\n]+)$', r'<p>\g<1></p>', html_content, flags=re.MULTILINE)
-html_content = re.sub(r'(<p>.+</p>)', r'\g<1>\n', html_content)
+html_content = re.sub(r'^(.+)$', r'<p>\g<1></p>', html_content, flags=re.MULTILINE)
+html_content = re.sub(r'</(ul|ol)>\n<p>', r'</\g<1>>\n', html_content)
+html_content = re.sub(r'</p>\n<(ul|ol)>', r'\n</\g<1>>\n', html_content)
 
 with open(output_file, 'w') as file:
     file.write(html_content)
