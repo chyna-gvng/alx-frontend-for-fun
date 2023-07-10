@@ -53,7 +53,7 @@ def li(line, flags):
     # if "-s" in flags:
     #     content = " " + content
 
-    return(content)
+    return (content)
 
 
 def clean_line(line):
@@ -76,7 +76,7 @@ def clean_line(line):
         content = re.sub("[cC]", "", content)
         line = re.sub(r"\(\((.*)\)\)", content, line)
 
-    return(line)
+    return (line)
 
 
 def mark2html(*argv):
