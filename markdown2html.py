@@ -21,4 +21,3 @@ if not os.path.exists(input_file):
 # ...
 
 sys.exit(0)
-
