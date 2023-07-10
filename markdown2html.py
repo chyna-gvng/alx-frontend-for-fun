@@ -28,6 +28,10 @@ html_content = re.sub(r'^# (.+)$', r'<h1>\g<1></h1>', markdown_content, flags=re
 html_content = re.sub(r'^- (.+)$', r'<li>\g<1></li>', html_content, flags=re.MULTILINE)
 html_content = re.sub(r'(<li>.+</li>)', r'<ul>\n\g<1>\n</ul>', html_content)
 
+# Parse ordered lists and generate HTML
+html_content = re.sub(r'^\* (.+)$', r'<li>\g<1></li>', html_content, flags=re.MULTILINE)
+html_content = re.sub(r'(<li>.+</li>)', r'<ol>\n\g<1>\n</ol>', html_content)
+
 with open(output_file, 'w') as file:
     file.write(html_content)
 
