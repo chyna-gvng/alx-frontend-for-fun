@@ -34,7 +34,7 @@ def h(line):
         content += word + " "
     content = content[0:-1]
 
-    return("<h{}>{}</h{}>".format(level, content, level))
+    return ("<h{}>{}</h{}>".format(level, content, level))
 
 
 def li(line, flags):
