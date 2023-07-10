@@ -22,7 +22,7 @@ def h(line):
     level = parse_space[0].count("#")
 
     if (level > 6):
-        return(line)
+        return (line)
 
     # Remove closing symbols at end of line.
     if len(parse_space[-1]) == parse_space[-1].count("#"):
