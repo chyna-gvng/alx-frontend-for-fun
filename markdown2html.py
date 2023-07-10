@@ -22,7 +22,7 @@ with open(input_file, 'r') as file:
     markdown_content = file.read()
 
 # Parse headings and generate HTML
-html_content = re.sub(r'^(#{1,6})\s*(.+)$', lambda match: f"<h{len(match.group(1))}>{match.group(2)}</h{len(match.group(1))}>", markdown_content, flags=re.MULTILINE)
+html_content = re.sub(r'^-\s+(.+)$', r'<ul>\n<li>\g<1></li>\n</ul>', markdown_content, flags=re.MULTILINE)
 
 with open(output_file, 'w') as file:
     file.write(html_content)
