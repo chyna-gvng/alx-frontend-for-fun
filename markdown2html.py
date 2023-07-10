@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 """
-Module for storing the markdown to html script.
+    Python script that takes an argument 2 strings:
+    - First argument is the name of the Markdown file.
+    - Second argument is the output file name.
+    Usage: ./markdown2html.py README.md README.html
 """
 from sys import argv, stderr
 from os.path import exists
@@ -10,10 +13,7 @@ from time import sleep
 
 
 def h(line):
-    """
-    Creates a heading html element
-    <h1..6>...</h1..6}>
-    """
+    # Creates a heading html element
     line = line.replace("\n", "")
 
     line = line.strip()
