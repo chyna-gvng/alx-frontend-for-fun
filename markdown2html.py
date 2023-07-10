@@ -21,8 +21,11 @@ if not os.path.exists(input_file):
 with open(input_file, 'r') as file:
     markdown_content = file.read()
 
+# Parse headings and generate HTML
+html_content = re.sub(r'^# (.+)$', r'<h1>\g<1></h1>', markdown_content, flags=re.MULTILINE)
+
 # Parse unordered lists and generate HTML
-html_content = re.sub(r'^- (.+)$', r'<li>\g<1></li>', markdown_content, flags=re.MULTILINE)
+html_content = re.sub(r'^- (.+)$', r'<li>\g<1></li>', html_content, flags=re.MULTILINE)
 html_content = re.sub(r'(<li>.+</li>)', r'<ul>\n\g<1>\n</ul>', html_content)
 
 with open(output_file, 'w') as file:
