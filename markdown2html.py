@@ -79,7 +79,6 @@ def clean_line(line):
     return (line)
 
 
-
 def mark2html(*argv):
     # Function that converts markdown to html.
     inputFile = argv[1]
