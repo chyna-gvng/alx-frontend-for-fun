@@ -58,13 +58,14 @@ def li(line, flags):
 
 def clean_line(line):
     # Styling tags with the use of Regular expressions.
+    # Extract ** for <b> tags
+    bold_text = re.findall(r"\*\*(\S+)\*\*", line)
+
     # Replace ** for <b> tags
-    line = re.sub(r"\*\*(\S+)", r"<b>\1", line)
-    line = re.sub(r"(\S+)\*\*", r"\1</b>", line)
+    line = re.sub(r"\*\*(\S+)", r"<b>\1</b>", line)
 
     # Replace __ for <em> tags
-    line = re.sub(r"\_\_(\S+)", r"<em>\1", line)
-    line = re.sub(r"(\S+)\_\_", r"\1</em>", line)
+    line = re.sub(r"\_\_(\S+)", r"<em>\1</em>", line)
 
     # Replace [[<content>]] for md5 hash of content.
     line = re.sub(r"\[\[(.*)\]\]", md5(r"\1".encode()).hexdigest(), line)
@@ -76,8 +77,11 @@ def clean_line(line):
         content = re.sub("[cC]", "", content)
         line = re.sub(r"\(\((.*)\)\)", content, line)
 
-    return (line)
+    # Add the bold text back to the line
+    for text in bold_text:
+        line = line.replace("<b></b>", text)
 
+    return (line)
 
 def mark2html(*argv):
     # Function that converts markdown to html.
