@@ -7,11 +7,9 @@ body {
 }
 
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
+  position: relative;
+  width: 200px;
+  height: 400px;
 }
 
 .box {
@@ -20,33 +18,34 @@ body {
   align-items: center;
   font-size: 20px;
   font-weight: bold;
-  flex: 1;
-  height: 200px;
+  width: 100%;
+  height: 100px;
   box-sizing: border-box;
-  position: relative;
+  position: absolute;
 }
 
 .box1 {
   background-color: #FFD700;
-  z-index: 1; /* Boxes 1 and 5 have lower z-index to be behind 2 and 4 */
+  top: 0;
 }
 
 .box2 {
   background-color: #FFA500;
-  z-index: 3; /* Box 2 is behind Box 3 but in front of Boxes 1 and 5 */
+  top: 100px;
 }
 
 .box3 {
   background-color: #FF4500;
-  z-index: 5; /* Box 3 has the highest z-index to be in front of all other boxes */
+  top: 150px;
+  z-index: 2; /* Box 3 will appear above other boxes */
 }
 
 .box4 {
   background-color: #FF6347;
-  z-index: 3; /* Box 4 is behind Box 3 but in front of Boxes 1 and 5 */
+  top: 100px;
 }
 
 .box5 {
   background-color: #FF1493;
-  z-index: 1; /* Boxes 1 and 5 have lower z-index to be behind 2 and 4 */
+  top: 200px;
 }
