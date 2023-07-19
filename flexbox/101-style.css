@@ -23,24 +23,30 @@ body {
   flex: 1;
   height: 200px;
   box-sizing: border-box;
+  position: relative;
 }
 
 .box1 {
   background-color: #FFD700;
+  z-index: 1; /* Boxes 1 and 5 have lower z-index to be behind 2 and 4 */
 }
 
 .box2 {
   background-color: #FFA500;
+  z-index: 3; /* Box 2 is behind Box 3 but in front of Boxes 1 and 5 */
 }
 
 .box3 {
   background-color: #FF4500;
+  z-index: 5; /* Box 3 has the highest z-index to be in front of all other boxes */
 }
 
 .box4 {
   background-color: #FF6347;
+  z-index: 3; /* Box 4 is behind Box 3 but in front of Boxes 1 and 5 */
 }
 
 .box5 {
   background-color: #FF1493;
+  z-index: 1; /* Boxes 1 and 5 have lower z-index to be behind 2 and 4 */
 }
