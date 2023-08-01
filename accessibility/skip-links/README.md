@@ -1,2 +1,2 @@
 ### Frontend
-Readme file for the directory *fix-a11y*.  
+Readme file for the directory *skip-links*.  
