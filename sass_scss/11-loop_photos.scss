@@ -1,6 +1,6 @@
 /*loop photos*/
 /* Use each to create classes */
-@import '11-photos.scss';
+@import "11-photos.scss";
 
 @each $name in $list-names {
   .photo-#{$name} {
